@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import Categories from './Categories';
 
 class App extends React.Component{
     onTermSubmit = async (term) =>{
@@ -18,6 +19,7 @@ class App extends React.Component{
     render(){
         return (
             <div className="ui container">
+                <Categories />
                 <SearchBar onFormSubmit={this.onTermSubmit}  />
             </div>
         );
