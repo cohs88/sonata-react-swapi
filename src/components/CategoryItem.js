@@ -3,10 +3,9 @@ class CategoryItem extends React.Component{
     render(){
         return (
             <div>
-                <input 
-                    type="button" 
-                    value={this.props.text}
-                />
+                <button>
+                    {this.props.text}
+                </button>
             </div>
         );
     }
