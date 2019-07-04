@@ -3,7 +3,7 @@ export function categoryResults(state = [], action) {
         case 'CATEGORY_SELECTED':
             return action.payload;
         case 'CATEGORY_SEARCH':
-            return state.filter(s => s.name === action.term);
+            return state.filter(s => s.name.toLowerCase() === action.term.toLowerCase());
         default:
             return state;
     }
