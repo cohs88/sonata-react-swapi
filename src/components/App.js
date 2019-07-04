@@ -1,30 +1,35 @@
 import React from 'react';
-import SearchBar from './SearchBar';
-import Categories from './Categories';
+import { connect } from 'react-redux'
+import { updateState} from '../actions'
+// import SearchBar from './SearchBar';
+// import Categories from './Categories';
+import CategoryDetailList from './CategoryDetailList';
+// import { connect } from 'http2';
 
 class App extends React.Component{
-    onTermSubmit = async (term) =>{
-        // const response = await youtube.get('/search', {
-        //      params:{
-        //          q:term
-        //      }
-        //  });
- 
-        //  this.setState({
-        //      videos: response.data.items,
-        //      selectedVideo: response.data.items[0]
-        //  });
-     };
+    
 
     render(){
         return (
             <div className="ui container">
-                <Categories />
-                <SearchBar onFormSubmit={this.onTermSubmit}  />
+                <button onClick={() => this.props.updateState('planets')}>Planets</button>
+                <button>Spaceships</button>
+                <button>Vehicles</button>
+                <button>People</button>
+                <button>Films</button>
+                <button>Species</button>
+
+                {/* <Categories /> */}
+                {/* <SearchBar /> */}
+                <CategoryDetailList />
             </div>
         );
     }
 }
 
+function mapStateToProps(state) {
+    return { categoryResults: state };
+  }
 
-export default App;
+
+export default connect(mapStateToProps, {updateState})(App);
