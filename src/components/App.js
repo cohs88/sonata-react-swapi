@@ -13,11 +13,11 @@ class App extends React.Component{
     render(){
         return (
             <div className="ui container">
-                <Home />
-
-                
-                <CategoryDetailList />
-                <CategoryItem />
+                <BrowserRouter>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/list" exact component={CategoryDetailList} />
+                    <Route path="/detail" exact component={CategoryItem} />
+                </BrowserRouter>
             </div>
         );
     }
