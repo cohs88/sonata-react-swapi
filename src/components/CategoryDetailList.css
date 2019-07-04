@@ -1,0 +1,17 @@
+ul{
+    width:150px;
+    padding: 0px;
+    margin:0px;
+}
+.CategoryDetailList-Container
+{
+    width: 200px;    
+    float:left;
+}
+ul li
+{
+    color:red;
+    list-style: none;
+    padding: 8px;
+    border:solid silver 1px;
+}

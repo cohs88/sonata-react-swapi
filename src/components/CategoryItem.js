@@ -1,8 +1,9 @@
 import React from 'react';
 import  {connect} from 'react-redux';
+import './CategoryItem.css';
 
 const CategoryItem = (props) => (
-    <p>{JSON.stringify(props.childResults)}</p>
+    <div>{JSON.stringify(props.childResults)}</div>
 )
 
 function mapStateToProps({childResults}) {
