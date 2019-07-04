@@ -2,27 +2,27 @@ import React from 'react';
 import  {connect} from 'react-redux';
 import { updateCategoryItemState} from '../actions';
 import SearchBar from './SearchBar';
-import './CategoryDetailList.css'
+import './CategoryDetailList.css';
+import { withRouter, Link} from 'react-router-dom';
 
 const CategoryDetailList = (props) => {
     
     return (
         <div>
-        <SearchBar />
-        <div className="CategoryDetailList-Container">
-
-        <ul>
-            {
-
-                props.categoryResults.map(function(res){
-                        let name = res.hasOwnProperty('name') ? res.name : res.title;
-                        return <li key={name} onClick={() => props.updateCategoryItemState(res.url)  } >{name}</li>
+            <Link to="/" className="item">Home</Link>    
+            <SearchBar />
+            <div className="CategoryDetailList-Container">
+                <ul>
+                    {
+                        props.categoryResults.map(function(res){
+                                let name = res.hasOwnProperty('name') ? res.name : res.title;
+                                return <li key={name} onClick={() => {props.updateCategoryItemState(res.url); props.history.push('/detail') }   } >{name}</li>
+                            } 
+                        )
                     } 
-                )
-            } 
-        </ul>
-    </div>
-    </div>
+                </ul>
+            </div>
+        </div>
     );
 }
     

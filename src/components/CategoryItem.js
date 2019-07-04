@@ -1,9 +1,15 @@
 import React from 'react';
 import  {connect} from 'react-redux';
 import './CategoryItem.css';
+import { Link} from 'react-router-dom';
 
 const CategoryItem = (props) => (
-    <div>{JSON.stringify(props.childResults)}</div>
+    <div>
+        <Link to="/list" className="item">
+            List
+        </Link>
+        <div>{JSON.stringify(props.childResults)}</div>
+    </div>
 )
 
 function mapStateToProps({childResults}) {

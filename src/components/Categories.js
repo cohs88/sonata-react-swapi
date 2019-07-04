@@ -9,7 +9,7 @@ class Categories extends React.Component{
                 <div className="item" key={category.title}>
                     <div className="">
                         <button 
-                            onClick={() => this.props.selectCategory(category)}
+                            onClick={() => {this.props.selectCategory(category); props.history.push('/detail') } }
                             className="ui button primary">
                             {category.title}
                         </button>
