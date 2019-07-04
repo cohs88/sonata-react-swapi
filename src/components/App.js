@@ -14,11 +14,11 @@ class App extends React.Component{
         return (
             <div className="ui container">
                 <button onClick={() => this.props.updateState('planets')}>Planets</button>
-                <button>Spaceships</button>
-                <button>Vehicles</button>
-                <button>People</button>
-                <button>Films</button>
-                <button>Species</button>
+                <button onClick={() => this.props.updateState('starships')}>Spaceships</button>
+                <button onClick={() => this.props.updateState('vehicles')}>Vehicles</button>
+                <button onClick={() => this.props.updateState('people')}>People</button>
+                <button onClick={() => this.props.updateState('films')}>Films</button>
+                <button onClick={() => this.props.updateState('species')}>Species</button>
 
                 {/* <Categories /> */}
                 {/* <SearchBar /> */}
