@@ -1,32 +1,12 @@
-/*
 import React from 'react';
 import  {connect} from 'react-redux';
-import {selectSong} from '../actions';
 
-class CategoryItem extends React.Component{
-    render(){
-        return (
-            <div>
-                <button 
-                    onClick={() => this.props.selectCategory(this.props.text)}>
-                    {this.props.text}
-                </button>
-            </div>
-        );
-    }
+const CategoryItem = (props) => (
+    <p>{JSON.stringify(props.childResults)}</p>
+)
+
+function mapStateToProps({childResults}) {
+    return { childResults };
 }
 
-
-// export default CategoryItem;
-
-// convention
-const mapStateToProps = (state) => {
-    console.log('mapstate', state);
-
-    return {songs: state.songs};
-};
-
-export default connect(mapStateToProps, {
-    selectSong: selectSong
-})(SongList);
-*/
+export default connect(mapStateToProps)(CategoryItem);

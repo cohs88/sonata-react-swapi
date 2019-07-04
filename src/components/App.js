@@ -4,6 +4,7 @@ import { updateState} from '../actions'
 // import SearchBar from './SearchBar';
 // import Categories from './Categories';
 import CategoryDetailList from './CategoryDetailList';
+import CategoryItem  from './CategoryItem';
 // import { connect } from 'http2';
 
 class App extends React.Component{
@@ -22,6 +23,7 @@ class App extends React.Component{
                 {/* <Categories /> */}
                 {/* <SearchBar /> */}
                 <CategoryDetailList />
+                <CategoryItem />
             </div>
         );
     }

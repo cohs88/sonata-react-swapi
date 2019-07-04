@@ -10,6 +10,15 @@ export function categoryResults(state = [], action) {
     }
 }
 
+export function childResults(state = [], action) {
+    switch(action.type) {
+        case 'CHILD_SELECTED':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // const categoriesReducer = () => {
 //     console.log('categoriesReducer');
 //     return [
