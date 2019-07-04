@@ -8,10 +8,6 @@ export function updateState(category) {
             payload: result.results
         });
     }
-    // return {
-    //     type: 'CATEGORY_SELECTED',
-    //     payload: category
-    // };
 };
 
 export function updateCategoryItemState(url){
