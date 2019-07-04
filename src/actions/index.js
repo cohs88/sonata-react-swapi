@@ -22,3 +22,12 @@ export function updateCategoryItemState(url){
         });
     }
 }
+
+export function filterDataAction(itemName) {
+    return function(dispatch){
+        dispatch({
+            type: 'CATEGORY_SEARCH',
+            term: itemName
+        });
+    }
+};
