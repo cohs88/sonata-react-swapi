@@ -1,12 +1,16 @@
 import React from 'react';
 import  {connect} from 'react-redux';
-import { updateCategoryItemState} from '../actions'
+import { updateCategoryItemState} from '../actions';
+import SearchBar from './SearchBar';
 import './CategoryDetailList.css'
 
 const CategoryDetailList = (props) => {
     
     return (
+        <div>
+        <SearchBar />
         <div className="CategoryDetailList-Container">
+
         <ul>
             {
 
@@ -17,6 +21,7 @@ const CategoryDetailList = (props) => {
                 )
             } 
         </ul>
+    </div>
     </div>
     );
 }
