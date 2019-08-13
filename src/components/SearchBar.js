@@ -2,30 +2,55 @@ import React from 'react';
 import  {connect} from 'react-redux';
 import { filterDataAction} from '../actions';
 
+function isFormValid(termInput) {
+  return termInput.length > 0;
+}
+
 class SearchBar  extends React.Component{
-    state = {term: ''};
+    constructor(props) {
+        super(props);
+        this.state = {
+          termInput: '',
+          errors: {
+            termInput: ''
+          }
+        };
+    }
 
     onInputChange = (event)=>{
-        this.setState({term: event.target.value});
+        this.setState({termInput: event.target.value});
     };
 
     onFormSubmit = (event) =>{
         event.preventDefault();
 
-        this.props.filterDataAction(this.state.term);
+        const errors = this.state.errors;
+        const value = this.state.termInput;
+        
+        if (!isFormValid(value)) {
+          
+          errors.termInput = 'Enter chars';
+          this.setState({errors});
+          return;
+        }
+        
+        this.props.filterDataAction(value);
     };
 
     render(){
+        const {errors} = this.state;
         return (
             <div className="ui segment search-bar">
-                <form onSubmit={this.onFormSubmit} className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form" noValidate>
                     <div className="field">
                         <input 
-                        value={this.state.term} 
                             type="text"
-                            onChange={this.onInputChange}  
-                            placeholder="Search..."
+                            value={this.state.termInput}
+                            name="termInput"
+                            onChange={this.onInputChange}
+                            noValidate
                         />
+                        {errors.termInput.length > 0 && <span className='error'>{errors.termInput}</span>}
                     </div>
                 </form>
             </div>
