@@ -1,17 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateState} from '../actions'
-import { withRouter} from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
 
 const Home = (props) => {
+    // const [resource, setResource] = useState('categories');
+
     return (
         <div>
-            <button onClick={() => { props.updateState('planets'); props.history.push('/list') }  }>Planets</button>
-            <button onClick={() => { props.updateState('starships'); props.history.push('/list') } }>Spaceships</button>
-            <button onClick={() => {props.updateState('vehicles'); props.history.push('/list')} }>Vehicles</button>
-            <button onClick={() => {props.updateState('people'); props.history.push('/list')} } >People</button>
-            <button onClick={() => {props.updateState('films'); props.history.push('/list')} }>Films</button>
-            <button onClick={() => {props.updateState('species'); props.history.push('/list') }}>Species</button> 
+            <Link to="/list/planets" className="button ui">
+                Planets
+            </Link>
+            <Link to="/list/starships" className="button ui">
+                Spaceships
+            </Link>
+            <Link to="/list/vehicles" className="button ui">
+                Vehicles
+            </Link>
+            <Link to="/list/people" className="button ui">
+                People
+            </Link>
+            <Link to="/list/films" className="button ui">
+                Films
+            </Link>
+            <Link to="/list/species" className="button ui">
+                Species
+            </Link>
         </div>
     );
 }

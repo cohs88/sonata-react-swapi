@@ -15,7 +15,7 @@ class App extends React.Component{
             <div className="ui container">
                 <BrowserRouter>
                     <Route path="/" exact component={Home} />
-                    <Route path="/list" exact component={CategoryDetailList} />
+                    <Route path="/list/:category" exact component={CategoryDetailList} />
                     <Route path="/detail" exact component={CategoryItem} />
                 </BrowserRouter>
             </div>

@@ -4,9 +4,13 @@ import { updateCategoryItemState} from '../actions';
 import SearchBar from './SearchBar';
 import './CategoryDetailList.css';
 import { withRouter, Link} from 'react-router-dom';
+import useResources from './useResource';
 
-const CategoryDetailList = (props) => {
-    
+const CategoryDetailList = (props) =>{
+    const {category} = props.match.params;
+
+    const categoryResults2 = useResources(category);
+
     return (
         <div>
             <Link to="/" className="item">Home</Link>    
@@ -14,7 +18,7 @@ const CategoryDetailList = (props) => {
             <div className="CategoryDetailList-Container">
                 <ul>
                     {
-                        props.categoryResults.map(function(res){
+                        Object.values(categoryResults2).map(function(res){
                                 let name = res.hasOwnProperty('name') ? res.name : res.title;
                                 return <li key={name} onClick={() => {props.updateCategoryItemState(res.url); props.history.push('/detail') }   } >{name}</li>
                             } 
