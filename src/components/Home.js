@@ -1,11 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { updateState} from '../actions'
-import { withRouter, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Home = (props) => {
-    // const [resource, setResource] = useState('categories');
-
     return (
         <div>
             <Link to="/list/planets" className="button ui">
@@ -29,10 +25,5 @@ const Home = (props) => {
         </div>
     );
 }
-    
-function mapStateToProps(state) {
-    return { categoryResults: state };
-}
 
-
-export default connect(mapStateToProps, {updateState})(Home);
+export default Home;

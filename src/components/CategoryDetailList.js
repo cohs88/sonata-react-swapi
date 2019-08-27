@@ -3,7 +3,7 @@ import  {connect} from 'react-redux';
 import { updateCategoryItemState} from '../actions';
 import SearchBar from './SearchBar';
 import './CategoryDetailList.css';
-import { withRouter, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import useResources from './useResource';
 
 const CategoryDetailList = (props) =>{
