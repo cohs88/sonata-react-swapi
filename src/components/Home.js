@@ -1,29 +1,35 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { withRouter, Link} from 'react-router-dom';
+import CategoriesContext from '../contexts/CategoriesContext';
+import { connect } from 'react-redux'
+import { updateState} from '../actions'
 
-const Home = (props) => {
-    return (
-        <div>
-            <Link to="/list/planets" className="button ui">
-                Planets
-            </Link>
-            <Link to="/list/starships" className="button ui">
-                Spaceships
-            </Link>
-            <Link to="/list/vehicles" className="button ui">
-                Vehicles
-            </Link>
-            <Link to="/list/people" className="button ui">
-                People
-            </Link>
-            <Link to="/list/films" className="button ui">
-                Films
-            </Link>
-            <Link to="/list/species" className="button ui">
-                Species
-            </Link>
-        </div>
-    );
+class Home extends React.Component  
+{
+    static contextType = CategoriesContext;
+
+    onOptionClick = (categorySelected) => {
+        this.props.updateState(categorySelected); //'planets'
+        this.context.onCategoryChange(categorySelected);
+        this.props.history.push('/list/' + categorySelected);
+    }
+    render(){
+        
+        return (
+            <div>
+                <button className="button ui" onClick={() => this.onOptionClick('planets') }>Planets</button>
+                <button className="button ui" onClick={() => this.onOptionClick('starships') }>Spaceships</button>
+                <button className="button ui" onClick={() => this.onOptionClick('vehicles') }>Vehicles</button>
+                <button className="button ui" onClick={() => this.onOptionClick('people') }>People</button>
+                <button className="button ui" onClick={() => this.onOptionClick('films') }>Films</button>
+                <button className="button ui" onClick={() => this.onOptionClick('species') }>Species</button>
+            </div>
+        );
+    }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return { categoryResults: state };
+}
+     
+export default connect(mapStateToProps, {updateState})(Home);

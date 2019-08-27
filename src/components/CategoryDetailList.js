@@ -5,6 +5,8 @@ import SearchBar from './SearchBar';
 import './CategoryDetailList.css';
 import { Link} from 'react-router-dom';
 import useResources from './useResource';
+import CategoriesContext from '../contexts/CategoriesContext';
+
 
 const CategoryDetailList = (props) =>{
     const {category} = props.match.params;
@@ -13,7 +15,13 @@ const CategoryDetailList = (props) =>{
 
     return (
         <div>
-            <Link to="/" className="item">Home</Link>    
+            <Link to="/" className="item">Home</Link>   
+            &nbsp;
+            <CategoriesContext.Consumer>
+                {
+                    ({category}) => <h2>{category}</h2>
+                }
+            </CategoriesContext.Consumer>
             <SearchBar />
             <div className="CategoryDetailList-Container">
                 <ul>
