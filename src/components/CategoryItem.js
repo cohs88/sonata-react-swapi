@@ -5,8 +5,8 @@ import { Link} from 'react-router-dom';
 
 const CategoryItem = (props) => (
     <div>
-        <Link to="/list" className="item">
-            List
+        <Link to="/" className="item">
+            Home
         </Link>
         <div>{JSON.stringify(props.childResults)}</div>
     </div>
